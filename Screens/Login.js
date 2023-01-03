@@ -19,10 +19,10 @@ function Login({navigation}) {
             .once('value')
             .then(res => {
               if (res.val().Category === 'Customer') {
-                navigation.navigate('Home', res);
+                navigation.navigate('TabRoute');
               }
             else if (res.val().Category == 'Admin') {
-                navigation.navigate('Home');
+                navigation.navigate('Admin');
               }
               setloader(false);
             })
@@ -86,6 +86,8 @@ function Login({navigation}) {
               loader={loader}
               onPress={loginUser}
               color={'black'}
+              fs={20}
+              fw={'800'}
               bgcolor={'white'}
             />
           </View>

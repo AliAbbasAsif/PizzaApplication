@@ -22,7 +22,7 @@ function Signup({navigation}) {
               .ref(`Users/${res.user.uid}`)
               .set(model)
               .then(() => {
-                navigation.navigate('Home', res.user.uid);
+                navigation.navigate('TabRoute', res.user.uid);
                 setloader(false);
               })
               .catch(dbError => {
@@ -46,7 +46,7 @@ function Signup({navigation}) {
           style={{width: '100%', height: '100%', flex: 1}}>
       
       <View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{padding: 10, marginLeft: 18, marginTop: 90,marginBottom:40}}>
             <Text
               style={{
@@ -89,17 +89,19 @@ function Signup({navigation}) {
               />
             </View>
           </View>
-        </ScrollView>
-        <View>
           <View style={{paddingHorizontal: 20, paddingTop: 16}}>
             <CSButton
               label={'SignUp'}
               loader={loader}
               color={'black'}
               bgcolor={'white'}
+              fs={25}
+              fw={'800'}
               onPress={signupuser}
             />
           </View>
+        </ScrollView>
+        <View>
           <View style={{alignItems: 'center'}}>
             <View style={{flexDirection: 'row',marginTop:16}}>
               <Text style={{color: 'white', fontSize: 16}}>

@@ -90,6 +90,8 @@ function Admin() {
                     loader={loader}
                     color={'black'}
                     bgcolor={'white'}
+                    fs={25}
+                    fw={'800'}
                     onPress={sendData}
                   />
                 </View>

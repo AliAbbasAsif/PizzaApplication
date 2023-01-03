@@ -5,14 +5,21 @@ import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps'; // remove PR
 import Geolocation from '@react-native-community/geolocation';
 
 function Further() {
+
   const [lang, setlang] = useState('-345678');
   const [long, setlong] = useState('2345678');
-  console.log(lang, long);
+  // const [start,setstart] = useState({});
   Geolocation.getCurrentPosition(info => {
-    console.log(info);
-    setlong(info.coords.longitude);
+    console.log(info.coords);
+    // setstart(info.coords.latitude,info.coords.longitude);
     setlang(info.coords.latitude);
+    setlong(info.coords.longitude);
   });
+  // console.log('12',start);
+  // let destination = {
+  //   langitude: 24.811158845254425,
+  //   longitude: 67.05885736731295,
+  // };
   return (
     <>
       <View>
@@ -20,6 +27,7 @@ function Further() {
         <View>
           <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+            userInterfaceStyle="dark"
             style={{
               height: 500,
               width: 400,
@@ -33,8 +41,13 @@ function Further() {
             <Marker
               coordinate={{latitude: lang, longitude: long}}
               title="test description"
-              pinColor='blue'
+              pinColor="red"
               description="test description"></Marker>
+            {/* <Marker
+              coordinate={{destination}}
+              title="test description"
+              pinColor="blue"
+              description="test description"></Marker> */}
           </MapView>
         </View>
       </View>
